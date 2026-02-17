@@ -3,8 +3,7 @@
 * **Render metrics** measure time spent **inside Render** (gateway + upstream call).
   It **does not include the user’s internet connection latency**.
 
-* **Locust metrics** measure what a user actually experiences, including their internet connection latency.
-
+* **Locust metrics** measure what a user actually experiences — including how long it takes for the request to travel over the internet to Render and back.
 
 ## 1. Render Reported Metrics
 
