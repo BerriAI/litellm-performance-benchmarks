@@ -1,13 +1,11 @@
 # Latency Comparison Report
 
-## Why the Numbers Are Different
+## Why the Numbers Are Different (Render vs Locust)
 
 * **Render metrics** measure time spent **inside Render** (gateway + upstream call).
-  They **do not include the user’s internet connection**.
+  It **does not include the user’s internet connection latency**.
 
-* **Locust metrics** measure what a user actually experiences — including **the user’s own network connection over the internet**.
-
-* The main difference is that Locust includes **real-world internet latency**, which is why those numbers are higher.
+* **Locust metrics** measure what a user actually experiences, including their internet connection latency.
 
 
 ## 1. Render Reported Metrics
