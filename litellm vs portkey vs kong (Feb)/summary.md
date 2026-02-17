@@ -1,22 +1,14 @@
 # Latency Comparison Report
 
-## Why the Numbers Are Different (And Why That Matters)
+## Why the Numbers Are Different
 
-* **Render metrics** measure how long the request takes **inside Render** — from when the gateway receives the request to when it sends the response back.
-  This includes gateway processing and the upstream provider call, but **does not include the user’s internet connection**.
+* **Render metrics** measure time spent **inside Render** (gateway + upstream call).
+  They **do not include the user’s internet connection**.
 
-* **Locust metrics** measure what a user would actually experience.
-  This includes:
+* **Locust metrics** measure what a user actually experiences — including **the user’s own network connection over the internet**.
 
-  * The user’s own internet connection
-  * Internet routing and network variability
-  * Gateway processing
-  * Upstream provider response time
-  * The return trip back to the user
+* The main difference is that Locust includes **real-world internet latency**, which is why those numbers are higher.
 
-* Locust numbers are higher because they measure the **full end-to-end journey**, including real-world internet conditions.
-
----
 
 ## 1. Render Reported Metrics
 
@@ -29,10 +21,6 @@
 | **p90** | ~38 ms   | ~68 ms      | ~222 ms     |
 | **p99** | ~56 ms   | ~183 ms     | ~805 ms     |
 
-These numbers represent time spent inside Render (gateway + upstream call), not user-facing internet latency.
-
----
-
 ## 2. Locust Reported Metrics
 
 *(Full user-observed latency)*
@@ -42,11 +30,7 @@ These numbers represent time spent inside Render (gateway + upstream call), not 
 | **p50**       | ~720 ms     | ~590 ms     | ~780 ms     |
 | **p95**       | ~1,900 ms   | ~1,700 ms   | ~2,100 ms   |
 | **p99**       | ~2,800 ms   | ~2,500 ms   | ~3,000 ms   |
-| **Stability** | 0% failures | 0% failures | 0% failures |
 
-These numbers reflect what a real user experiences over the internet.
-
----
 
 # Test Specs
 
