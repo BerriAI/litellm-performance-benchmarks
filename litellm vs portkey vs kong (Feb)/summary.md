@@ -1,6 +1,4 @@
-# Latency Comparison Report
-
-## Why the Numbers Are Different (Render vs Locust)
+# Why the Numbers Are Different (Render vs Locust)
 
 * **Render metrics** measure time spent **inside Render** (gateway + upstream call).
   It **does not include the user’s internet connection latency**.
