@@ -1,0 +1,11 @@
+_format_version: "3.0"
+
+services:
+  - name: llm-service
+    url: https://exampleopenaiendpoint-production-0ee2.up.railway.app
+
+routes:
+  - name: openai-chat
+    service: llm-service
+    paths:
+      - /chat
