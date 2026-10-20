@@ -7,7 +7,7 @@ class MyUser(HttpUser):
     wait_time = between(0.5, 1)  # Random wait time between requests
 
     def on_start(self):
-        self.api_key = "sk-1234"
+        self.api_key = os.environ["API_KEY"]
         self.client.headers.update({'Authorization': f'Bearer {self.api_key}'})
         
         # Portkey config header (same as k6 script)
@@ -16,7 +16,7 @@ class MyUser(HttpUser):
             "targets": [
                 {
                     "provider": "openai",
-                    "api_key": self.api_key,
+                    "api_key": "fake-api-key-for-example-endpoint",
                     "custom_host": "https://exampleopenaiendpoint-production-0ee2.up.railway.app",
                     "request_timeout": 10000,
                     "weight": 1,
