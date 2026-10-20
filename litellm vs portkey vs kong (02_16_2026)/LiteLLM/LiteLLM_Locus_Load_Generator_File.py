@@ -6,7 +6,7 @@ class MyUser(HttpUser):
     wait_time = between(0.5, 1)  # Random wait time between requests
 
     def on_start(self):
-        self.api_key = "sk-1234"
+        self.api_key = os.environ["API_KEY"]
         self.client.headers.update({'Authorization': f'Bearer {self.api_key}'})
 
     @task
